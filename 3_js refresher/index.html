@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS refresher</title>
+    <script>
+        // let a = 75; it is a modern js keyword we cannot use this variable again using let it throws error
+        // const b = 90;
+        // var c = 99;
+        let a = 31;
+        console.log( a )
+
+        // Data types in Js
+        // numbers
+        // objects
+        // booleans
+        // string
+        // number
+        // undefined
+        // null
+
+        // functions
+        function hello () {
+            console.log( "Hello Ruturaj" );
+        }
+        hello();
+
+        // objects
+        let obj_d = {
+            a: 21,
+            b: 32,
+            func: function myfunc ( number ) {
+                console.log( "The number is : " + number )
+            }
+        };
+        console.log( obj_d );
+        console.log( obj_d.a );
+        console.log( obj_d.func(45) );
+
+        document.addEventListener("click" , ()=>{
+            console.log("Clicked")
+            alert("Explosive Material")
+            let con = confirm("Are you sure ?");
+            console.log(con);
+        })
+
+        setTimeout(()=>{
+            console.log("Euuu");
+        } , 3000);
+
+    </script>
+</head>
+
+<body>
+    <h1>I am brushing my JS skills</h1>
+    
+</body>
+
+</html>
