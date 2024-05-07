@@ -6,12 +6,14 @@ export default function TextForm ( props ) {
         // console.log('Upper Case button is clicked ' + text);
         let newText = text.toUpperCase();
         setText( newText );
+        props.showAlert("Converted to uppercase!" , "success");
     }
 
     const handleLoClick = () => {
         // console.log('Upper Case button is clicked ' + text);
         let newText = text.toLowerCase();
         setText( newText );
+        props.showAlert("Converted to Lowercase!" , "success");
     }
 
     const handleOnChange = ( event ) => {
@@ -20,17 +22,20 @@ export default function TextForm ( props ) {
     }
 
     const handleSpacing = () => {
-        let newText = text.split( /[ ]+/ )
-        setText( newText.join( " " ) )
+        let newText = text.split( /[ ]+/ );
+        setText( newText.join( " " ) );
+        props.showAlert("Extra spaces Removed!" , "success");
     }
 
     const handleCopy = () => {
         navigator.clipboard.writeText( text )
+        props.showAlert("Text copied to clipboard!" , "success");
     }
 
     const handleClear = () => {
         let newText = ""
-        setText( newText )
+        setText( newText );
+        props.showAlert("Cleared!" , "success");
     }
 
     const handleWordCount = () => {

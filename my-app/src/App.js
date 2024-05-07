@@ -14,6 +14,9 @@ function App () {
       msg: message,
       type: type
     } )
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
   const toggleMode = () => {
     if ( mode === 'light' ) {
@@ -37,7 +40,7 @@ function App () {
       <Alert alert={ alert } />
 
       <div className="container">
-        <TextForm heading="Any suggestion" mode={ mode } />
+        <TextForm heading="Any suggestion" showAlert={showAlert} mode={ mode } />
       </div>
 
       {/* <About/> */ }
