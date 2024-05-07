@@ -20,24 +20,24 @@ export default function TextForm ( props ) {
     }
 
     const handleSpacing = () => {
-        let newText =  text.split(/[ ]+/)
-        setText(newText.join(" "))
+        let newText = text.split( /[ ]+/ )
+        setText( newText.join( " " ) )
     }
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(text)
+        navigator.clipboard.writeText( text )
     }
 
-    const handleClear = ()=>{
+    const handleClear = () => {
         let newText = ""
-        setText(newText)
+        setText( newText )
     }
 
     const handleWordCount = () => {
-        if( text === "") {
+        if ( text === "" ) {
             return text.split( " " ).length - 1
         }
-            
+
         return text.split( " " ).length
     }
 
@@ -45,10 +45,10 @@ export default function TextForm ( props ) {
 
     return (
         <>
-            <div className='container'style = {{color : props.mode === 'light'?'grey':'white'}}>
+            <div className='container' style={ { color: props.mode === 'light' ? 'grey' : 'white' } }>
                 <h1>{ props.heading }</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={ text } style = {{backgroundColor : props.mode === 'dark'?'grey':'white' , color : props.mode === 'light'?'black':'white'}} onChange={ handleOnChange } id="Mybox" rows="6"></textarea>
+                    <textarea className="form-control" value={ text } style={ { backgroundColor: props.mode === 'dark' ? 'grey' : 'white', color: props.mode === 'light' ? 'black' : 'white' } } onChange={ handleOnChange } id="Mybox" rows="6"></textarea>
                 </div>
                 <button className="btn btn-primary mx-2" onClick={ handleUpClick } >Convert to uppercase</button>
                 <button className="btn btn-primary mx-2" onClick={ handleLoClick } >Convert to lowercase</button>
@@ -57,12 +57,12 @@ export default function TextForm ( props ) {
                 <button className="btn btn-primary mx-2" onClick={ handleClear } >Clear text</button>
             </div>
 
-            <div className="container my-3" style = {{color : props.mode === 'light'?'grey':'white'}}>
+            <div className="container my-3" style={ { color: props.mode === 'light' ? 'grey' : 'white' } }>
                 <h2>Your text summary</h2>
                 <p>{ handleWordCount() } words and { text.length } characters</p>
                 <p>{ 0.008 * text.split( " " ).length } Minutes to read characters.</p>
                 <h2>Preview</h2>
-                <p>{text.length>0?text:"Enter your text to preview it here"}</p>
+                <p>{ text.length > 0 ? text : "Enter your text to preview it here" }</p>
             </div>
         </>
     )
