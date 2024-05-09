@@ -39,11 +39,11 @@ export default function TextForm ( props ) {
     }
 
     const handleWordCount = () => {
-        if ( text === "" ) {
-            return text.split( " " ).length - 1
+        if ( text.trim() === "" ) {
+            return 0;
         }
 
-        return text.split( " " ).length
+        return text.trim().split( " " ).length
     }
 
     const [text, setText] = useState( "" );
