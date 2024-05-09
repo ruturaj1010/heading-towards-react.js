@@ -4,7 +4,7 @@ import TextForm from './Components/TextForm';
 import About from './Components/About';
 import React, { useState } from 'react';
 import Alert from './Components/Alert';
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App () {
   const [mode, setMode] = useState( "light" );
@@ -15,9 +15,9 @@ function App () {
       msg: message,
       type: type
     } )
-    setTimeout(() => {
-      setAlert(null);
-    }, 2000);
+    setTimeout( () => {
+      setAlert( null );
+    }, 2000 );
   }
 
   const toggleMode = () => {
@@ -38,28 +38,20 @@ function App () {
 
   return (
     <>
-      <Navbar title="TextUtils" aboutText="About us" mode={ mode } toggleMode={ toggleMode } />
+      {/* <Navbar title="TextUtils" aboutText="About us" mode={ mode } toggleMode={ toggleMode }  /> */ }
       {/* <Navbar/> */ }
 
-      <Alert alert={ alert } />
+      <Router>
+        <div className="container my-3">
+          <Navbar title="TextUtils" aboutText="About us" mode={ mode } toggleMode={ toggleMode } />
+          <Alert alert={ alert } />
 
-      <div className="container">
-        <TextForm heading="Any suggestion" showAlert={showAlert} mode={ mode } />
-      </div>
-
-      <About/>
-
-
-      {/* <Router>
-        <Navbar mode={ mode } toggleMode={ toggleMode } />
-        <Alert alert={ alert } />
-
-        <Switch>
-        // Use Route to define the paths and components for each page
-          <Route exact path="/" component={ <TextForm heading="Any suggestion" showAlert={ showAlert } mode={ mode } /> } />
-          <Route path="/about" component={ About } />
-        </Switch>
-      </Router> */}
+          <Routes>    {/* Routes is used instead of Switch beacause of updated version React */ }
+            <Route exact path="/" element={ <TextForm heading="Any suggestion" showAlert={ showAlert } mode={ mode } /> } />
+            <Route exact path="/about" element={ <About /> } />
+          </Routes>
+        </div>
+      </Router>
 
     </>
   );
