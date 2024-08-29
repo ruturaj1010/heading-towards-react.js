@@ -38,11 +38,7 @@ function App () {
 
   return (
     <>
-      {/* <Navbar title="TextUtils" aboutText="About us" mode={ mode } toggleMode={ toggleMode }  /> */ }
-      {/* <Navbar/> */ }
-
       <Router>
-
           <Navbar title="TextUtils" aboutText="About us" mode={ mode } toggleMode={ toggleMode } />
           <Alert alert={ alert } />
 
@@ -51,7 +47,6 @@ function App () {
             <Route exact path="/about" element={ <About mode={ mode }/> } />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-
       </Router>
 
     </>
